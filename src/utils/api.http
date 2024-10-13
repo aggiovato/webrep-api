@@ -1,0 +1,49 @@
+
+
+### Recuperar todos los sitios webs
+GET http://localhost:3000/api/webs
+
+### Recuperar web por id
+GET http://localhost:3000/api/webs/2
+
+### Recuperar web por country
+GET http://localhost:3000/api/webs?country=spain
+
+### Crear un nuevo web
+POST http://localhost:3000/api/webs
+Content-Type: application/json
+
+{
+  "username": "Carlos Rodríguez",
+  "country": "Spain",
+  "email": "carlos.rodriguez@example.es",
+  "phone": "+34 600 123 456",
+  "age": 35,
+  "url": "https://carlos.dev",
+  "profession": "full stack developer",
+  "search": "JavaScript frameworks",
+  "date": "12/09/2023",
+  "time": "11:20",
+  "datetime": "12/09/2023 11:20",
+  "range": -6
+}
+
+### Actualizar un web
+PATCH http://localhost:3000/api/webs/2
+Content-Type: application/json
+
+{
+  "username": "Carlos Rodríguez",
+  "country": "Spain",
+  "email": "carlos.rodriguez@example.es",
+  "phone": "+34 600 123 456",
+  "age": "35",
+  "url": "https://carlos.dev",
+  "profession": "full stack developer",
+  "search": "JavaScript frameworks",
+  "date": "12/09/2023",
+  "time": "11:20",
+  "datetime": "12/09/2023 11:20",
+  "range": "-6"
+}
+

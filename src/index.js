@@ -1,13 +1,16 @@
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 
 const app = express();
+app.disable("x-powered-by"); //desactiva cabecera de Express
 
 //settings
-app.set("port", process.env.PORT || 3000);
+const PORT = process.env.PORT || 3000;
 app.set("json spaces", 2);
 
 //middlewares
+app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
 
@@ -15,7 +18,6 @@ app.use(express.json());
 app.use("/api/webs", require("./routes/webs"));
 
 // starting the server
-const PORT = app.get("port");
 app.listen(PORT, () => {
-  console.log(`Server on route: http://localhost:${PORT}`);
+  console.log(`Server listening on port: http://localhost:${PORT}/api/webs`);
 });

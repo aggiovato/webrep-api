@@ -9,8 +9,10 @@
   "author": "Aggiovato",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.1",
-    "morgan": "^1.10.0"
+    "cors": "^2.8.5",
+    "express": "4.21.1",
+    "morgan": "^1.10.0",
+    "zod": "3.23.8"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
