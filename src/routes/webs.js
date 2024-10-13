@@ -4,7 +4,11 @@ const router = Router();
 const webs_json = require("../data/webrep-webs.json");
 const { validateWeb } = require("../utils/schemas");
 
-// get all webs
+/***
+ *
+ * GET /api/webs
+ *
+ */
 router.get("/", (req, res) => {
   const { country } = req.query;
   if (country) {
@@ -17,7 +21,11 @@ router.get("/", (req, res) => {
   res.json(webs_json);
 });
 
-//get web by id
+/***
+ *
+ * GET /api/webs/:id
+ *
+ */
 router.get("/:id", (req, res) => {
   const { id } = req.params;
   const web = webs_json.find((web) => web.id === id);
@@ -27,7 +35,11 @@ router.get("/:id", (req, res) => {
   res.status(404).json({ message: "Web not found" });
 });
 
-//post new web
+/***
+ *
+ * POST /api/webs
+ *
+ */
 router.post("/", (req, res) => {
   const result = validateWeb(req.body);
 
@@ -46,6 +58,11 @@ router.post("/", (req, res) => {
   res.status(201).json(newWeb); //201 Created
 });
 
+/***
+ *
+ * PATCH /api/webs/:id
+ *
+ */
 router.patch("/:id", (req, res) => {
   const { id } = req.params;
   const web = webs_json.find((web) => web.id === id);
